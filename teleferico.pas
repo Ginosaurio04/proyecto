@@ -4,7 +4,7 @@ const
   PRECIOGENERAL=20;
   PRECIOTERCERAEDADYMENORES=12;
 var
-  precioboleto,boletosven,boletosgeneralesven,boletosterceraedadven,boletosmenoresven,monto,montototal,opcion,tipoboleto,cantidadboletos,tipoviaje,estacionllegada:integer;
+  precioboleto,boletosven,boletosgeneralesven,boletosterceraedadven,boletosmenoresven,tipoboleto,monto,montototal,opcion,cantidadboletos,tipoviaje,estacionllegada:integer;
   nombre,apellido,cedula:string;
 begin
   boletosven:=0;
@@ -86,6 +86,11 @@ begin
         ReadLn  
       end;  
     end;
+
+    2: begin
+      writeln('------------------Datos del sistema--------------------');
+      writeln('boletos vendidos');
+     
     3: begin
       WriteLn('Muchas gracias por acceder Teleferico Merida vuelva pronto.')
     end;

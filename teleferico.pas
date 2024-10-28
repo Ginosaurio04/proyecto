@@ -90,7 +90,8 @@ begin
     2: begin
       writeln('------------------Datos del sistema--------------------');
       writeln('boletos vendidos');
-     
+    
+    end;
     3: begin
       WriteLn('Muchas gracias por acceder Teleferico Merida vuelva pronto.')
     end;
@@ -102,4 +103,4 @@ begin
     end;
     end;
   until (opcion=3);
-end. 
+end.  

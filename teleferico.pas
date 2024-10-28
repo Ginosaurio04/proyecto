@@ -88,10 +88,29 @@ begin
     end;
 
     2: begin
-      writeln('------------------Datos del sistema--------------------');
-      writeln('boletos vendidos');
-    
-    end;
+      program teleferico;
+procedure VerSistema;
+var
+  asientosDisponibles: integer;
+begin
+  writeln('------------------ver sistema--------------------');
+  writeln('Boletos vendidos:');
+  writeln('   - Generales: ', boletosgeneralesven);
+  writeln('   - Tercera edad/niños: ', boletosterceraedadven);
+  writeln('   - Menores de 3 años: ', boletosmenoresven);
+  writeln('   - Total: ', boletosven);
+  asientosDisponibles := MAXIMACAPACIDAD - boletosven;
+  writeln('Asientos disponibles: ', asientosDisponibles);
+  writeln('Reporte de ventas del día:');
+
+end;
+
+begin
+  case opcion of
+    1: { ... código de compra de boletos ... }
+    2: VerSistema;
+    3: { ... código de salida ... }
+  end;
     3: begin
       WriteLn('Muchas gracias por acceder Teleferico Merida vuelva pronto.')
     end;

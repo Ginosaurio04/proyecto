@@ -4,11 +4,13 @@ const
   MAXIMACAPACIDAD=60;
   PRECIOGENERAL=20;
   PRECIOTERCERAEDADYMENORES=12;
+
 var
   precioboleto,boletosven,boletosgeneralesven,boletosterceraedadven,boletosmenoresven,tipoboleto,monto,montototal,opcion,cantidadboletos,tipoviaje,estacionllegada,i,asientosdisponibles,boletoscancelados:LongInt;
   nombre,apellido,cedula,estacionllegadaen,tipoboletoen,cantidadboletosen,tipoviajeen:string;
   valido:Boolean;
   confirmar:char;
+
 begin
   boletosven:=0;
   montototal:=0;
@@ -17,14 +19,15 @@ begin
   boletosmenoresven:=0;
   boletoscancelados:=0;
   repeat
-  clrscr;
-  asientosdisponibles:=(MAXIMACAPACIDAD - boletosven);
+    clrscr;
+    asientosdisponibles:=(MAXIMACAPACIDAD - boletosven);
     Writeln('------------Bienvenido al teleferico de Merida------------');
     Writeln('Que desea hacer hoy?');
     Writeln('1.Comprar boleto');
     Writeln('2.Ver sistema');
     Writeln('3.salir');
     Readln(opcion);
+
     case opcion of
       1:begin
       clrscr;
@@ -50,6 +53,7 @@ begin
               break;
           end;
       until valido;
+
       repeat
         clrscr;
         Writeln('------------Compra de Boletos------------');
@@ -65,6 +69,7 @@ begin
             break;
           end;
       until valido;
+
       repeat
         clrscr;
         Writeln('------------Compra de Boletos------------');  
@@ -72,7 +77,7 @@ begin
         Readln(cedula);
         valido:=true;
         for i:=1 to Length(cedula) do
-          if not(cedula[i] in ['1'..'9']) then
+          if not(cedula[i] in ['0'..'9']) then
           begin
             WriteLn('La cedula nada mas puede contener numeros. Presione enter para intentar de nuevo.');
             valido:=false;
@@ -80,6 +85,7 @@ begin
             Break;
           end;
       until valido;
+
       repeat
         clrscr;
         Writeln('------------Compra de Boletos------------');
@@ -101,6 +107,7 @@ begin
             WriteLn('La estacion de llegada se elije a traves de numero. Presione enter para intentar de nuevo.');
             ReadLn;
       until false;
+
       repeat
         clrscr;
         Writeln('------------Compra de Boletos------------');
@@ -120,6 +127,7 @@ begin
         Writeln('Los tipos de boletos se elije a traves de numeros. Presione enter para intentar de nuevo.'); 
         Readln; 
       until false;
+
       repeat
         clrscr;
         Writeln('------------Compra de Boletos------------');
@@ -149,6 +157,7 @@ begin
           Readln;
         end;  
       until (cantidadboletos>0) and (cantidadboletos<=asientosdisponibles);
+
       repeat
         clrscr;
         Writeln('------------Compra de Boletos------------');
@@ -167,6 +176,7 @@ begin
           WriteLn('Los tipos de viaje se elijen a traves de numeros. Presione enter para intentar de nuevo.');
           Readln;
       until false;  
+
         case tipoboleto of
           1:begin
             precioboleto:= PRECIOGENERAL;
@@ -196,6 +206,7 @@ begin
             monto:=monto*2;
           montototal:=montototal+monto;
           boletosven:=boletosven+cantidadboletos;
+
           repeat
             clrscr;
             Writeln('------------Compra de Boletos------------');
@@ -223,19 +234,20 @@ begin
               WriteLn('Opcion no valida. Presione enter para intentar de nuevo.'); 
               ReadLn
           until False;
+
         end;  
       end;  
     2: begin
         clrscr;
-        writeln('------------------ver sistema--------------------');
-        writeln('Boletos vendidos:');
-        writeln('   - Generales: ', boletosgeneralesven);
-        writeln('   - Tercera edad/ninos: ', boletosterceraedadven);
-        writeln('   - Menores de 3: ', boletosmenoresven);
+        Writeln('------------------ver sistema--------------------');
+        Writeln('Boletos vendidos:');
+        Writeln('   - Generales: ', boletosgeneralesven);
+        Writeln('   - Tercera edad/ninos: ', boletosterceraedadven);
+        Writeln('   - Menores de 3: ', boletosmenoresven);
         WriteLn('   - Cancelados: ',boletoscancelados);
-        writeln('   - Total: ', boletosven);
-        writeln('Asientos disponibles: ', asientosdisponibles);
-        writeln('Reporte de ventas del dia:', montototal);
+        Writeln('   - Total: ', boletosven);
+        Writeln('Asientos disponibles: ', asientosdisponibles);
+        Writeln('Reporte de ventas del dia:', montototal);
         WriteLn('Presiones Enter para volver al menu');
         ReadLn;
    end;
@@ -245,6 +257,7 @@ begin
         WriteLn('Presione enter para salir');
         ReadLn;
     end;
+    
     else 
     begin
       WriteLn('No se encuentra esa opcion. Presione enter para volver al menu');

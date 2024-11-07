@@ -7,7 +7,7 @@ begin
     fibonacci[1]:=0;
     fibonacci[2]:=1;
 
-    for i:= 3 to limete do
+    for i:= 3 to limite do
     begin
         fibonacci[i]:= fibonacci[i-1]+fibonacci[i-2];
     end;
